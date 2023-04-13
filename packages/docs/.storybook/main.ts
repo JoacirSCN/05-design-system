@@ -25,10 +25,11 @@ const config: StorybookConfig = {
   core: {
     builder: '@storybook/builder-vite'
   },
-  viteFinal: (config, { configType }) => {
+  viteFinal: async (config, { configType }) => {
     if (configType === 'PRODUCTION') {
       config.base = '/05-design-system/'
     }
+
     return config
   },
 
