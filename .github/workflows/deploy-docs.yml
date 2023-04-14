@@ -1,10 +1,9 @@
 name: Deploy docs
 
 on:
-  pull_request:
+  push:
     branches:
       - main
-      - gh-pages
 
 jobs:
   build-and-deploy:
@@ -24,6 +23,6 @@ jobs:
 
       - name: Deploy storybook to GitHub Pages
         working-directory: ./packages/docs
-        run: npm run deploy-storybook -- --ci --existing-output-dir=storybook-static
+        run: npm run deploy-storybook -- --ci --existing-output-dir=./storybook-static
         env:
           GH_TOKEN: ${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}
