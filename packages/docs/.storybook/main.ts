@@ -11,7 +11,9 @@ const config: StorybookConfig = {
     autodocs: 'tag',
     defaultName: 'Documentation'
   },
-  core: {},
+  core: {
+    builder: '@storybook/builder-vite',
+  },
   viteFinal: async (config, {
     configType
   }) => {
